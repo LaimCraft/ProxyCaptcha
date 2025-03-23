@@ -1,4 +1,4 @@
-package com.github.isaevisa05.proxyсaptcha;
+package com.github.isaevisa05.proxycaptcha;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
@@ -14,5 +14,6 @@ public class ProxyCaptcha {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
+        TunnelRunner tunnelRunner = new TunnelRunner(logger);
     }
 }
