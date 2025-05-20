@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 @Plugin(id = "proxycaptcha", name = "ProxyCaptcha", version = "0.0.1", url = "https://www.LaimCraft.Ru", authors = {"LaimCraft", "isaevisa05"})
 public class ProxyCaptcha {
 
-    private ProxyServer server;
-    private Logger logger;
+    public static ProxyServer server;
+    public static Logger logger;
 
     @Inject
     public ProxyCaptcha(ProxyServer server, Logger logger) {
@@ -25,6 +25,7 @@ public class ProxyCaptcha {
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         TunnelRunner tunnelRunner = new TunnelRunner(logger);
+        server.getEventManager().register(this, new IpLogger());
     }
 
 
